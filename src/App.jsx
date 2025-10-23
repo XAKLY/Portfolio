@@ -172,12 +172,12 @@ const PROJECTS = [
     pre:"Une plateforme de cours de langues avec réservations en ligne, ressources pédagogiques, entraînement aux tests, visioconférences et suivi personnalisé des progrès.",
     description: "Site de cours de langues proposant : gestion dynamique d'un calendrier partagé (prof / étudiant), espace pour documents et livres à acheter, préparation et entraînement aux tests, et intégration de sessions vidéo via Google Meet. Plateforme conçue pour offrir une expérience fluide — réservations en ligne, espace professeur pour préparer le cours et suivi des progrès de l'étudiant.",
     link: "https://scorexplorer.com/",
-    image: `${import.meta.env.BASE_URL}images/cal2.jpg`,
+    image: `images/aaaaa.jpg`,
     images: [
-      `${import.meta.env.BASE_URL}images/cal2.jpg`,
-      `${import.meta.env.BASE_URL}images/cal1.jpg`,
-      `${import.meta.env.BASE_URL}images/cal3.jpg`,
-      `${import.meta.env.BASE_URL}images/cal4.jpg`
+      `images/aaaaa.jpg`,
+      `images/aaaa.jpg`,
+      `images/aaa.jpg`,
+      `images/a.jpg`
     ],
     slug: "ScoreXplorer",
     status: "termine",
