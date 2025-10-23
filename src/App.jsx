@@ -22,7 +22,6 @@ import {
   Users,
   Linkedin
 } from "lucide-react";
-
 /* SkillIcon and constants unchanged (kept as in original) */
 const SkillIcon = ({ skill }) => {
   const iconProps = { width: 16, height: 16, className: "skill-icon" };
@@ -149,53 +148,97 @@ const SKILLS = [
 
 const PROJECTS = [
   {
-    title: "FieldOps - Construction Management",
-    description: "Plateforme de gestion de projets de construction avec suivi en temps réel et coordination d'équipes.",
+    title: "Unnamed - Construction Management",
+   pre:"Plateforme IA pour la gestion de projets BTP, automatisant les tâches et optimisant coordination et précision.",
+    description: "Plateforme de gestion et d’estimation de projets BTP intégrant l’IA pour automatiser les tâches, assurer le suivi en temps réel et améliorer la coordination des équipes. Objectif : simplifier le travail, gagner du temps et accroître la précision.",
     link: "https://fieldops.example.com/",
-    image: "/images/const.jpg",
+    image: `${import.meta.env.BASE_URL}images/const.jpg`,
     images: [
-      "/images/const.jpg",
-      "/images/const1.jpg",
+      `${import.meta.env.BASE_URL}images/const.jpg`,
+      `${import.meta.env.BASE_URL}images/const1.jpg`,
     ],
-    slug: "fieldops-construction-management",
-    status: "en-cours"
+    slug: "construction-management",
+    status: "en-cours",
+    technos: ["React.js", "Vite", "Node.js / Express", "SQL / PostgreSQL", "OCR processing", "Python (backend ML)", "OpenCV"],
+    notes: [
+      "Intégration de modèles de détection d'objets pour suivi chantier.",
+      "Pipeline ETL pour traitement des métriques temps réel.",
+      "OCR processing pour extraction automatique de devis/factures depuis images.",
+      "Déploiement conteneurisé pour scalabilité et CI/CD."
+    ]
   },
-      {
-    title: "DKB Tools - Learning",
-    description: "Docs & outils — ressources et tutoriels.",
-    link: "https://dkb-tools.com/learning/index.php",
-    image: "/images/cal2.jpg",
-    images: [
-      "/images/cal2.jpg",
-      "/images/cal1.jpg",
-      "/images/cal3.jpg"
-    ],
-    slug: "dkb-tools-learning-2",
-    status: "en-cours"
-  },
-
   {
-    title: "QuickAid - Prototype",
-    description: "Landing + prototype front/back — intégration API & déploiement.",
-    link: "https://quickaid.ca/",
-    image: "/images/quick.png",
+    title: "Solution de prestation des cours de langues et services",
+    pre:"Une plateforme de cours de langues avec réservations en ligne, ressources pédagogiques, entraînement aux tests, visioconférences et suivi personnalisé des progrès.",
+    description: "Site de cours de langues proposant : gestion dynamique d'un calendrier partagé (prof / étudiant), espace pour documents et livres à acheter, préparation et entraînement aux tests, et intégration de sessions vidéo via Google Meet. Plateforme conçue pour offrir une expérience fluide — réservations en ligne, espace professeur pour préparer le cours et suivi des progrès de l'étudiant.",
+    link: "https://scorexplorer.com/",
+    image: `${import.meta.env.BASE_URL}images/cal2.jpg`,
     images: [
-      "/images/quick.png",
+      `${import.meta.env.BASE_URL}images/cal2.jpg`,
+      `${import.meta.env.BASE_URL}images/cal1.jpg`,
+      `${import.meta.env.BASE_URL}images/cal3.jpg`,
+      `${import.meta.env.BASE_URL}images/cal4.jpg`
+    ],
+    slug: "ScoreXplorer",
+    status: "termine",
+    technos: ["React.js", "Vite", "Node.js / Express", "SQL","AI Agent"],
+    notes: [
+      "Calendrier dynamique synchronisé pour professeurs et étudiants.",
+      "Espace boutique pour documents et livres numériques/physiques.",
+      "Modules de préparation aux tests et suivi des performances.",
+      "Intégration avec Google Meet pour sessions en ligne.",
+      "Intégration de l’IA pour la correction de la production écrite de l’utilisateur, sans intervention d’aucun professeur."
+    ]
+  },
+  {
+    title: "QuickAid - Plateforme de service (Quick Aid Canada)",
+    description: "Développement d'une plateforme de services reliant clients canadiens et techniciens certifiés pour l'entretien à la demande, avec gestion de devis et panneau d'administration.",
+    link: "https://quickaid.ca/",
+    image: `${import.meta.env.BASE_URL}images/quick.png`,
+    images: [
+      `${import.meta.env.BASE_URL}images/quick.png`,
     ],
     slug: "quickaid-prototype",
+    period: "Nov 2024 – Dec 2024",
+    status: "termine",
+    technos: [
+      "HTML & CSS",
+      "JavaScript",
+      "Bootstrap",
+      "PHP",
+      "SQL"
+    ],
+    notes: [
+      "Mise en place du flux client → technicien avec devis à prix fixe.",
+      "Système de gestion de projet complet (création, suivi, clôture).",
+      "Panneau d'administration pour gestion des utilisateurs, services et facturation."
+    ]
   },
   {
-    title: "DKB Tools - Learning",
-    description: "Docs & outils — ressources et tutoriels.",
+    title: "DKB Learning - Plateforme d'apprentissage en ligne (DKB Finance)",
+    description: "Plateforme de formation dédiée aux collaborateurs de DKB Finance : modules de cours, quizzes interactifs et suivi de la progression des employés.",
     link: "https://dkb-tools.com/learning/index.php",
-    image: "/images/dkb.jpg",
+    image: `${import.meta.env.BASE_URL}images/dkb.jpg`,
     images: [
-      "/images/dkb.jpg",
-
+      `${import.meta.env.BASE_URL}images/dkb.jpg`,
     ],
     slug: "dkb-tools-learning",
+    period: "Juin 2024 - Juillet 2024",
+    status: "termine",
+    technos: [
+      "PHP",
+      "MySQL",
+      "JavaScript",
+      "Bootstrap",
+      "OAuth (authentification)",
+      "HTML & CSS"
+    ],
+    notes: [
+      "Modules de cours avec quiz et suivi des progrès par employé.",
+      "Interface d'administration permettant CRUD sur cours et chapitres.",
+      "Rapports et dashboards pour suivi de performance des apprenants."
+    ]
   },
-
 ];
 
 const EDUCATION = [
@@ -203,33 +246,33 @@ const EDUCATION = [
     degree: "LICENCE EN INFORMATIQUE",
     period: "2020 - 2023",
     institution: "Université Badji Mokhtar Annaba",
-    image: "/images/ubma.png"
+    image: `${import.meta.env.BASE_URL}images/ubma.png`
   },
   {
     degree: "MASTER EN INTELLIGENCE ARTIFICIELLE ET TRAITEMENT DES DONNÉES",
     period: "2023 - 2025",
     institution: "Université Badji Mokhtar Annaba",
-    image: "/images/ubma.png"
+    image: `${import.meta.env.BASE_URL}images/ubma.png`
   },
   {
     degree:
       "CERTIFICAT EN SURVEILLANCE DES RISQUES DE CATASTROPHES À L'AIDE DE L'IMAGERIE SATELLITAIRE",
     period: "Juillet 2024",
     institution: "Nvidia Deep Learning Institute (en ligne)",
-    image: "/images/nvidia.png"
+    image: `${import.meta.env.BASE_URL}images/nvidia.png`
   },
-    {
+  {
     degree:
       "CERTIFICAT EN SPÉCIALISATION EN PROGRAMMATION C++ POUR LE DÉVELOPPEMENT DE JEUX UNREAL ENGINE",
     period: "Aout 2024",
     institution: "Université de Colorado Boulder (en ligne)",
-    image: "/images/uc.png"
+    image: `${import.meta.env.BASE_URL}images/uc.png`
   },
   {
     degree: "CERTIFICAT EN MACHINE LEARNING AVEC PYTHON",
     period: "Octobre 2024",
     institution: "IBM (en ligne)",
-    image: "/images/IBM.png"
+    image: `${import.meta.env.BASE_URL}images/IBM.png`
   },
 ];
 
@@ -239,7 +282,7 @@ const EXPERIENCE = [
     company: "AI Drones / Université Tech Nanjing",
     duration: "3 mois",
     location: "Nanjing, Chine",
-    image: "/images/nan.png",
+    image: `${import.meta.env.BASE_URL}images/nan.png`,
     bullets: [
       "Développement d'un système de suivi de drone à l'aide du modèle de nano architecture amélioré de YOLOv11, entraîné sur le jeu de données VisDrone.",
       "Mise en œuvre d'un contrôleur PID avancé pour obtenir un suivi à grande vitesse sans oscillations.",
@@ -260,13 +303,10 @@ const FAQ_DATA = [
     question: "Comment démarrer un projet avec moi ?",
     answer: "Contactez-moi via le formulaire ou par email, j'analyserai vos besoins, je propose une solution technique et un planning, puis nous lançons un prototype avant le développement complet."
   },
-  {
-    question: "Quels outils est-ce que j'utilise pour le design et le prototypage ?",
-    answer: "J'utilise Figma pour les maquettes UI/UX, React pour les interfaces, Tailwind/Tokens pour le styling et des outils de prototypage pour valider rapidement les interactions."
-  },
+
   {
     question: "Combien de temps prend un projet habituellement ?",
-    answer: "Un prototype simple peut prendre 1-2 semaines. Une application complète prend généralement 4-8 semaines. Un projet IA sur-mesure prend 6-12 semaines selon les jeux de données et la complexité."
+    answer: "Une application complète prend généralement 1-4 semaines. Un projet IA sur-mesure prend 4-12 semaines selon les jeux de données et la complexité."
   },
   {
     question: "Est-ce que je fournis des révisions ?",
@@ -387,6 +427,8 @@ export default function App() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [formError, setFormError] = useState("");
   const headerRef = useRef(null);
 
   useEffect(() => {
@@ -570,11 +612,48 @@ export default function App() {
     }
   };
 
-  const handleFormSubmit = (e) => {
+  // Formspree endpoint: use Vite env var or fallback placeholder.
+  const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || "https://formspree.io/f/xrbajkbd";
+
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    setShowConfirmation(true);
-    // Reset form
-    e.target.reset();
+    setFormError("");
+    setSubmitting(true);
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    // Optional: you can add a _subject or other special fields supported by Formspree:
+    // formData.append("_subject", "Nouveau message depuis le portfolio");
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Accept: "application/json"
+        },
+        body: formData
+      });
+
+      if (res.ok) {
+        setShowConfirmation(true);
+        form.reset();
+      } else {
+        // try to extract error message from JSON response
+        let text = "Erreur lors de l'envoi. Réessayez plus tard.";
+        try {
+          const json = await res.json();
+          if (json && json.error) text = json.error;
+        } catch (_) {}
+        setFormError(text);
+        console.error("Formspree error:", res.status, res.statusText);
+      }
+    } catch (err) {
+      console.error("Network error:", err);
+      setFormError("Erreur réseau. Vérifiez votre connexion.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -665,17 +744,6 @@ export default function App() {
               <a className="btn primary" href="#projects" onClick={(e) => handleNavClick(e, "projects")}>Voir projets</a>
               <a className="btn ghost" href="#contact" onClick={(e) => handleNavClick(e, "contact")}>Me contacter</a>
             </div>
-{/*}
-            <div className="trust-logos">
-              <span>Collaborations</span>
-              <div className="logos">
-                <span className="logo-pill">matrixus</span>
-                <span className="logo-pill">tyler</span>
-                <span className="logo-pill">ancestry</span>
-                <span className="logo-pill">ZEIT</span>
-              </div>
-            </div>
-            */}
           </div>
 
           <div className="hero-right">
@@ -688,7 +756,6 @@ export default function App() {
 
               <div className="mock-content avatar-section">
                 <div className="mock-card">
-                  {/* CHANGED: New unique text instead of repetitive content */}
                   <h4>Expertise technique</h4>
                   <p>Spécialiste en Intelligence Artificielle et développement d'applications web sur mesure pour startups et entreprises innovantes.</p>
                 </div>
@@ -696,7 +763,7 @@ export default function App() {
                 <div className="avatar-wrap">
                   <div className="profile-avatar" aria-hidden={false}>
                     <img
-                      src="/images/icon.png"
+                      src={`${import.meta.env.BASE_URL}images/icon.png`}
                       alt="Ilyes Mekersi"
                       className="profile-img"
                       onError={(e) => {
@@ -704,9 +771,8 @@ export default function App() {
                         e.currentTarget.src = TRANSPARENT_PLACEHOLDER;
                       }}
                     />
-
-                    {/* Move TypingSpeech inside the profile-avatar so it's positioned relative to the image */}
-
+                    {/* If you want to enable the typing speech, uncomment and pass phrases */}
+                    {/* <TypingSpeech phrases={["Bonjour ! Je suis Ilyes.", "Ingénieur IA & développeur full‑stack."]} /> */}
                   </div>
                 </div>
               </div>
@@ -807,7 +873,6 @@ export default function App() {
           <div className="projects-grid">
             {PROJECTS.map((p) => (
               <article key={p.title} className="project-card">
-                {/* UPDATED: Only show badge for "en-cours" status */}
                 {p.status === "en-cours" && (
                   <div className={`project-badge ${getBadgeClass(p.status)}`}>
                     {getBadgeText(p.status)}
@@ -828,11 +893,14 @@ export default function App() {
 
                 <div className="project-body">
                   <h4>{p.title}</h4>
-                  <p>{p.description}</p>
+                  <p>{p.pre || p.description}</p>
                   <div className="project-actions">
-                    <a className="btn ghost" href={p.link} target="_blank" rel="noreferrer">
-                      Démo
-                    </a>
+                    {/* Only show demo link when project is NOT "en-cours" */}
+                    {p.status !== "en-cours" && p.link && (
+                      <a className="btn ghost" href={p.link} target="_blank" rel="noreferrer">
+                        Démo
+                      </a>
+                    )}
                     <button className="btn mini" onClick={() => openDetail(p)}>
                       Détail
                     </button>
@@ -933,10 +1001,13 @@ export default function App() {
               <input required name="email" placeholder="Votre email" type="email" />
               <textarea name="message" rows={6} placeholder="Votre message" />
               <div className="form-actions">
-                <button type="submit" className="btn primary form-action">Envoyer</button>
+                <button type="submit" className="btn primary form-action" disabled={submitting}>
+                  {submitting ? "Envoi…" : "Envoyer"}
+                </button>
                 <a className="btn ghost form-action" href="mailto:mekersiilyes@gmail.com">Email</a>
                 <a className="btn ghost form-action" href="tel:+213541981088">+213 541981088</a>
               </div>
+              {formError && <div className="form-error" role="alert" style={{color: "var(--danger, #c0392b)", marginTop: 10}}>{formError}</div>}
             </form>
             
             <FAQ />
@@ -946,7 +1017,6 @@ export default function App() {
 
       <footer className="site-footer">
         <div className="container footer-inner">
-          {/* Left side: keep nav and useful links (now include all main links + projects list) */}
           <div className="footer-links-section">
             <div className="footer-links" aria-label="Liens">
               <a href="#skills" onClick={(e) => handleNavClick(e, "skills")}>Compétences</a>
@@ -958,7 +1028,6 @@ export default function App() {
 
           </div>
 
-          {/* Right side: email, phone and links to projects */}
           <div className="footer-contact">
             <a href="mailto:mekersiilyes@gmail.com">mekersiilyes@gmail.com</a>
             <a href="tel:+213541981088">+213 541981088</a>

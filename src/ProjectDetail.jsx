@@ -5,7 +5,7 @@ import "./modal-dark.css";
 /**
  * Modal project detail (dark theme) with modern image carousel.
  * Props:
- * - project: { title, description, link, image, images, slug, status? }
+ * - project: { title, description, link, image, images, slug, status?, technos?, notes?, period? }
  * - onClose: function to close the detail view
  */
 
@@ -137,7 +137,7 @@ export default function ProjectDetail({ project, onClose }) {
 
   const handleTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
-    
+
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > 50;
     const isRightSwipe = distance < -50;
@@ -168,21 +168,23 @@ export default function ProjectDetail({ project, onClose }) {
         <header className="modal-header">
           <div className="modal-title-block">
             <h2 className="modal-title">{project.title}</h2>
-            <div className="muted modal-sub">{project.description}</div>
+            {project.period && <div className="modal-period muted">{project.period}</div>}
           </div>
 
           <div className="modal-actions">
             <div className="actions-left">
-              {/* UPDATED: Only show badge for "en-cours" status */}
               {project.status === "en-cours" && (
                 <div className={`bb ${getBadgeClass(project.status)}`}>
                   {getBadgeText(project.status)}
                 </div>
               )}
 
-              <a className="btn ghost modal-ghost" href={project.link} target="_blank" rel="noreferrer">
-                Ouvrir Demo
-              </a>
+              {/* Only show demo link when project is NOT "en-cours" */}
+              {project.status !== "en-cours" && project.link && (
+                <a className="btn ghost modal-ghost" href={project.link} target="_blank" rel="noreferrer">
+                  Ouvrir Demo
+                </a>
+              )}
             </div>
 
             <div className="actions-right">
@@ -198,7 +200,7 @@ export default function ProjectDetail({ project, onClose }) {
           </div>
         </header>
 
-        <main className="modal-main">
+        <main className="modal-main" aria-live="polite">
           <div className="modal-image-container">
             <div 
               className="modal-image"
@@ -215,10 +217,10 @@ export default function ProjectDetail({ project, onClose }) {
                 }}
                 draggable={false}
               />
-              
+
               {/* Image overlay with progress */}
               {images.length > 1 && (
-                <div className="image-overlay">
+                <div className="image-overlay" aria-hidden>
                   <div className="image-counter">
                     {currentImageIndex + 1} / {images.length}
                   </div>
@@ -235,7 +237,7 @@ export default function ProjectDetail({ project, onClose }) {
             {/* Enhanced Navigation */}
             {images.length > 1 && (
               <>
-                <div className="image-navigation">
+                <div className="image-navigation" aria-hidden>
                   <button
                     className="nav-button nav-prev"
                     onClick={goToPrevImage}
@@ -245,7 +247,9 @@ export default function ProjectDetail({ project, onClose }) {
                     <ChevronLeft size={24} strokeWidth={2.5} />
                   </button>
 
+                  <div className="nav-center" aria-hidden>
 
+                  </div>
 
                   <button
                     className="nav-button nav-next"
@@ -258,7 +262,7 @@ export default function ProjectDetail({ project, onClose }) {
                 </div>
 
                 {/* Enhanced Image Indicators */}
-                <div className="image-indicators">
+                <div className="image-indicators" aria-hidden>
                   {images.map((_, index) => (
                     <button
                       key={index}
@@ -273,7 +277,7 @@ export default function ProjectDetail({ project, onClose }) {
                 </div>
 
                 {/* Thumbnail Strip for Large Screens */}
-                <div className="thumbnail-strip">
+                <div className="thumbnail-strip" aria-hidden>
                   {images.map((image, index) => (
                     <button
                       key={index}
@@ -303,17 +307,32 @@ export default function ProjectDetail({ project, onClose }) {
 
             <section>
               <h4>Technos utilisées</h4>
-              <p>Technologies, frameworks et outils utilisés pour ce projet.</p>
-            </section>
-
-            <section>
-              <h4>Fonctionnalités clés</h4>
-              <p>Principales fonctionnalités et caractéristiques du projet.</p>
+              {Array.isArray(project.technos) ? (
+                <ul className="tech-list">
+                  {project.technos.map((t, i) => (
+                    <li key={i} className="tech-item">{t}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p>{project.technos || "Technologies, frameworks et outils utilisés pour ce projet."}</p>
+              )}
             </section>
 
             <section>
               <h4>Notes techniques</h4>
-              <p>Architecture, défis rencontrés, et solutions apportées.</p>
+              {project.notes ? (
+                Array.isArray(project.notes) ? (
+                  <ul className="notes-list">
+                    {project.notes.map((n, i) => (
+                      <li key={i}>{n}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>{project.notes}</p>
+                )
+              ) : (
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Informations techniques non fournies.</p>
+              )}
             </section>
           </div>
         </main>
